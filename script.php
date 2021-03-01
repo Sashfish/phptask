@@ -35,6 +35,6 @@ foreach ($jsonArrayComments as $item)
 
 $conn -> close();
 
-echo "Imported {$post_count} posts and {$comment_count} comments";
+echo "Imported {$post_count} posts and {$comment_count} comments|Загружено {$post_count} записей и {$comment_count} комментариев";
 
 ?>
