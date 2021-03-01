@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `postId` int NOT NULL,
   `id` int NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `email` varchar(500) NOT NULL,
   `body` varchar(500) NOT NULL,
   PRIMARY KEY (`id`),
