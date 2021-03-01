@@ -26,7 +26,7 @@ if(isset($_GET['query'])) {
 	$query = $_GET['query'];
 	
 	if(strlen($query) >= 3){
-	$stmt = $conn -> prepare("SELECT DISTINCT p.title, c.body FROM post p INNER JOIN comment c ON c.postid = p.id WHERE c.body LIKE ?");
+	$stmt = $conn -> prepare("SELECT DISTINCT p.title, p.id, c.body FROM post p INNER JOIN comment c ON c.postid = p.id WHERE c.body LIKE ?");
 	$query = "%" . $query . "%";
 	$stmt -> bind_param("s", $query);
 	$stmt -> execute();
@@ -38,9 +38,9 @@ if(isset($_GET['query'])) {
 if (isset($arr)){
 if (count($arr) > 0){
 	echo "<h2>Search Results| Результаты Поиска</h2>";
-	echo "<table style=\"width:80%\"><tr><th>Post Title | Запись</th><th>Comment | Комментарий</th></tr>";
+	echo "<table style=\"width:80%\"><tr><th>ID</th><th>Post Title | Запись</th><th>Comment | Комментарий</th></tr>";
 	foreach ($arr as $item) {
-	echo("<tr><td>{$item['title']}</td><td>{$item['body']}</td></tr>");
+	echo("<tr><td>{$item['id']}</td><td>{$item['title']}</td><td>{$item['body']}</td></tr>");
 }
 } else {echo "No results found | Результаты не найдены";}
 	echo "</table>";

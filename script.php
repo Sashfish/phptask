@@ -15,8 +15,6 @@ $jsonArrayPosts = json_decode($jsonStringPosts, true);
 $jsonStringComments = file_get_contents('https://jsonplaceholder.typicode.com/comments');
 $jsonArrayComments = json_decode($jsonStringComments, true);
 
-
-
 foreach ($jsonArrayPosts as $item) 
 {	
 	$stmt = $conn -> prepare("INSERT INTO post (`userId`, `id`, `title`, `body`) VALUES (?, ?, ?, ?)");
@@ -36,5 +34,4 @@ foreach ($jsonArrayComments as $item)
 $conn -> close();
 
 echo "Imported {$post_count} posts and {$comment_count} comments|Загружено {$post_count} записей и {$comment_count} комментариев";
-
 ?>
